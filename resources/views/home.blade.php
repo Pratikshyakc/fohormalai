@@ -41,16 +41,16 @@
         }
 
         header h1 {
-            font-size: 2.5 rem;
+            font-size: 2.5em;
             font-weight: bold;
             text-align: center;
-            text-shadow: 2 px 2px 5 px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             border-bottom: 30px;
             padding-bottom: 10px;
             margin-bottom: 20px;
             color: #333;
             background-color: #218838;
-            border-radius: 2 rem;
+            border-radius: 2em;
             background-size: 50px;
         }
 
@@ -91,6 +91,7 @@
 
         .right-section {
             padding: 10px;
+
         }
 
         form {
