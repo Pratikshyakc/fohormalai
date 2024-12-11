@@ -3,162 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoharMalai</title>
+    <title>Fohormalai</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: right;
-            box-shadow: 0 4px 6px rgba(60, 12, 31, 0.065);
+            background-color: #f4f4f9;
         }
 
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .intro {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 100%;
             max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             gap: 20px;
         }
 
-        .image-gallery {
+        .left-section, .right-section {
             flex: 1;
-            margin: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .image-gallery img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .form-section {
-            flex: 1;
-            margin: 10px;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-section input, .form-section textarea {
-            width: 100%;
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        .form-section button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5 rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2 px 2px 5 px rgba(0, 0, 0, 0.1);
+            border-bottom: 30px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+            background-color: #218838;
+            border-radius: 2 rem;
+            background-size: 50px;
+        }
+
+        .image-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .carousel-btn {
+            background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 5px;
+            font-size: 1.5rem;
+            padding: 10px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 5px;
         }
 
-        .form-section button:hover {
-            background-color: #45a049;
+        .carousel-btn:hover {
+            background-color: #0056b3;
         }
 
-        footer {
-            background-color: #333;
+        .carousel-images {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px;
+        }
+
+        .image-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+
+        .right-section {
+            padding: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input, form textarea, form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        form button {
+            background-color: #28a745;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
         }
 
-        footer p {
-            margin: 0;
+        form button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-<header>
-    <h1>FoharMalai</h1>
-</header>
-
 <div class="container">
-    <div class="intro">
-        <p>Welcome to FoharMalai! Please fill out the details below and explore the location information.</p>
+    <!-- Left Section -->
+    <div class="left-section">
+        <header>
+            <h1>Fohormalai</h1>
+            <p>Welcome to Fohor Malai:</p>
+            <p>You can pin and locate garbage, which will notify your nearest municipality office. Let's keep our environment clean.</p>
+        </header>
+
+        <div class="image-carousel">
+            <button class="carousel-btn">&#8249;</button>
+            <div class="carousel-images">
+                <div class="image-box"></div>
+                <div class="image-box"></div>
+                <div class="image-box"></div>
+                <div class="image-box"></div>
+            </div>
+            <button class="carousel-btn">&#8250;</button>
+        </div>
     </div>
 
-    <div class="main-content">
-        <div class="image-gallery">
-            <h3>Gallery</h3>
-            <img src="\images\fohorphoto1.jpeg" alt="Description1">
-            <img src="\images\fohorphoto2.jpeg" alt="Description2">
-            <img src="\images\fohorphoto3.jpeg" alt="Description3">
-        </div>
+    <!-- Right Section -->
+    <div class="right-section">
+        <form class="form">
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image">
 
-        <div class="form-section">
-            <h3>Location Details</h3>
-            <div>
-                <label for="map">Map:</label>
-                <div id="map" style="width: 100%; height: 200px; background-color: #eaeaea; border-radius: 8px;">Map Placeholder</div>
-            </div>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
+            <label for="location">Location Detail</label>
+            <input type="text" id="location" name="location" placeholder="Enter location details">
 
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+            <label for="map">Map</label>
+            <input type="text" id="map" name="map" placeholder="Add map link">
 
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" placeholder="Enter your address">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-                <label for="remarks">Remarks:</label>
-                <textarea id="remarks" name="remarks" placeholder="Enter any remarks" rows="4"></textarea>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address">
+
+            <label for="remarks">Remarks</label>
+            <textarea id="remarks" name="remarks" rows="3" placeholder="Enter remarks"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
-
-<footer>
-    <p>&copy; 2024 FoharMalai. All rights reserved.</p>
-</footer>
 </body>
 </html>
