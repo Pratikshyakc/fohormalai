@@ -146,24 +146,22 @@
 
     <!-- Right Section -->
     <div class="right-section">
-        <form class="form">
+        <form action="{{route('garbage.store')}}" method="POST" class="form">
+            @csrf()
             <label for="image">Image</label>
             <input type="file" id="image" name="image">
 
             <label for="location">Location Detail</label>
             <input type="text" id="location" name="location" placeholder="Enter location details">
 
-            <label for="map">Map</label>
-            <input type="text" id="map" name="map" placeholder="Add map link">
-
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
 
             <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <input type="tel" id="phone" name="user_phone" placeholder="Enter your phone number">
 
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" placeholder="Enter your address">
+            <input type="text" id="address" name="user_address" placeholder="Enter your address">
 
             <label for="remarks">Remarks</label>
             <textarea id="remarks" name="remarks" rows="3" placeholder="Enter remarks"></textarea>

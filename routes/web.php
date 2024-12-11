@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
+Route::post('/garbage/store',[\App\Http\Controllers\HomeController::class,'store'])->name('garbage.store');
