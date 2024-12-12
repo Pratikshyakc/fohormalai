@@ -14,7 +14,7 @@ class HomeController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $validated = $request->validate(
             [
@@ -27,6 +27,7 @@ class HomeController extends Controller
                 'remarks' => 'required|string:max:255',
             ]
         );
+        return true;
 
     }
 }
