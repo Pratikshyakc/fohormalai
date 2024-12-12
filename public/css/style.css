@@ -28,8 +28,9 @@ body {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: rem;
     color: #237a49;
+    font-size: large;
     font-weight: bold;
     font-style: italic;
     font-family:'Courier New', Courier, monospace;
@@ -134,4 +135,7 @@ textarea {
     .left, .right {
         flex: none;
         width: 100%;
-}}
+        border-right: none;
+    }
+}
+

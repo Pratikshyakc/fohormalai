@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FohorMalai</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
 <div class="container">
@@ -14,7 +14,7 @@
             <h1>
                 FOHORMALAI!
             </h1>
-            <p>Welcome to Fohor Malai: You can pin and locate garbage, which will notify your nearest municipality office. Let’s keep our environment clean.</p>
+            <p>Welcome to FohorMalai: You can pin and locate garbage, which will notify your nearest municipality office. Let’s keep our environment clean.</p>
         </header>
         <div class="carousel">
             <button class="carousel-button" id="prev">&lt;</button>
