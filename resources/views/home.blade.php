@@ -157,15 +157,27 @@
 
             <label for="name">Name *</label>
             <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
+            @error('user_name')
+            <span>{{$message}}</span>
+            @enderror
 
             <label for="phone">Phone</label>
             <input type="tel" id="phone" name="user_phone" placeholder="Enter your phone number">
+            @error('user_phone')
+            <span>{{$message}}</span>
+            @enderror
 
             <label for="address">Address</label>
             <input type="text" id="address" name="user_address" placeholder="Enter your address">
+            @error('user_sddress')
+            <span>{{$message}}</span>
+            @enderror
 
             <label for="remarks">Remarks</label>
             <textarea id="remarks" name="remarks" rows="3" placeholder="Enter remarks"></textarea>
+            @error('remarks')
+            <span>{{$message}}</span>
+            @enderror
 
             <button type="submit">Submit</button>
         </form>
