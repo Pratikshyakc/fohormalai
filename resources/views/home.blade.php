@@ -93,7 +93,7 @@
             padding: 10px;
         }
 
-        form {
+        form card {
             display: flex;
             flex-direction: column;
             gap: 15px;
