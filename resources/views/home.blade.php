@@ -29,7 +29,8 @@
     </div>
 
     <div class="right">
-        <form action="#" method="POST">
+        <form action="{{route('garbage.store')}}" method="POST">
+            @csrf()
             <label for="image">Upload Image:</label>
             <input type="file" id="image" name="image" accept="image/*">
 

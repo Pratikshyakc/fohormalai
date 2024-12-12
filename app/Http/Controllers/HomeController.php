@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Garbage;
+use App\Notifications\NotifyCollector;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+
 
 class HomeController extends Controller
 {
@@ -16,6 +19,8 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        Notification::route('mail', 'recipient@example.com')->notify(new NotifyCollector());
+
         $validated = $request->validate(
             [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

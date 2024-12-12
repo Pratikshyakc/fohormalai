@@ -137,5 +137,14 @@ textarea {
         width: 100%;
         border-right: none;
     }
+    .map-placeholder {
+        height: 400px; /* Define the height of your map container */
+        width: 100%;
+        background-color: #f0f0f0; /* Optional: Light gray background for placeholder */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc; /* Optional: Border for placeholder */
+    }
 }
 
