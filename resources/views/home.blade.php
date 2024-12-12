@@ -15,7 +15,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
 </head>
 <body>
 <div class="container-fluid p-5">
@@ -58,7 +63,13 @@
                         </div>
 
                         <label for="map">Map:</label>
-                        <div class="map-placeholder">Map will be integrated here</div>
+                        <div id="map" style="height: 180px;"></div>
+                        <span id="coordinates" style="font-size: 12px">
+                            Click on the map to get latitude and longitude.
+                        </span>
+
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
 
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -69,7 +80,7 @@
                         <label for="address">Address:</label>
                         <input type="text" id="address" name="address" required>
 
-                        <label for="remarks">Remarks:</label>
+                        <label for="remarks">Remarks: (Optional)</label>
                         <textarea id="remarks" name="remarks" rows="4" placeholder="Enter any remarks"></textarea>
 
                         <button type="submit" class="submit-button">Submit</button>
@@ -85,7 +96,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 <script>
     $('.carousel').slick({
         dots: true,
@@ -111,6 +124,30 @@
         } else {
             uploadedDiv.style.display = 'none'; // Hide the div if no file is selected
         }
+    });
+    var map = L.map('map').setView([28.2096, 83.9856], 13);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    map.on('click', function(e) {
+        var lat = e.latlng.lat.toFixed(6); // Latitude rounded to 6 decimal places
+        var lng = e.latlng.lng.toFixed(6); // Longitude rounded to 6 decimal places
+
+        // Update the coordinates display
+
+
+        // Update the hidden input fields
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+
+        // Optionally add a marker at the clicked location
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup(`Lat: ${lat}, Lng: ${lng}`)
+            .openPopup();
     });
 </script>
 </body>

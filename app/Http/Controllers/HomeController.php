@@ -19,21 +19,35 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        Notification::route('mail', 'recipient@example.com')->notify(new NotifyCollector());
 
-        $validated = $request->validate(
+        $request->validate(
             [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'latitude' => 'required',
-                'longitude' => 'required',
+                'latitude' => 'required|decimal',
+                'longitude' => 'required|decimal',
                 'user_name' => 'required|string:max:255',
                 'user_phone' => 'required|numeric|digits:10',
                 'user_address' => 'required|string:max:255',
                 'remarks' => 'required|string:max:255',
             ]
         );
-        return true;
 
+
+        $data = $request->all();
+        Garbage::create($data);
+        if ($request->hasFile('image')) {
+            //store image in image_url
+        }
+        Notification::route('mail', 'recipient@example.com')->notify(new NotifyCollector());
+
+        return redirect()->back()->with('success', 'Your request has been submitted.');
+
+    }
+
+    public function getMap()
+    {
+        $garbages = Garbage::get(['latitude', 'longitude']);
+        return view('map', compact('garbages'));
     }
 }
 
