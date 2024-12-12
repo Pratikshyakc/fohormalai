@@ -1,6 +1,8 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 100;
+    font-style: normal;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -28,12 +30,11 @@ body {
 }
 
 header h1 {
-    font-size: rem;
+    font-size: 2rem;
     color: #237a49;
-    font-size: large;
-    font-weight: bold;
-    font-style: italic;
-    font-family:'Courier New', Courier, monospace;
+    font-weight: normal;
+    /*font-style: italic;*/
+    /*font-family:'Courier New', Courier, monospace;*/
 }
 
 header p {
@@ -124,6 +125,44 @@ textarea {
 
 .submit-button:hover {
     background-color: #218838;
+}
+.image-carousel{
+    height: 250px!important;
+    width: 100%!important;
+    object-fit: contain!important;
+}
+
+label
+{
+    color: #0f5f23;
+    font-weight: bold ;
+
+}
+.card{
+    border: none!important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;!important;
+}
+
+#image-uploaded {
+    border: 2px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+    display: none; /* Hide until an image is uploaded */
+}
+#preview-img {
+    max-width: 100%;  /* Ensure the image is responsive */
+    height: auto;
+}
+#upload-div {
+    cursor: pointer;
+    padding: 10px;
+    background-color: lightblue;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+#upload-div:hover {
+    background-color: #e0f7fa;  /* Light hover effect */
 }
 
 /* Responsive Design */
