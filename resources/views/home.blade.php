@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fohor Malai</title>
+    <title>FohorMalai</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    FOHORMALAI!
-
-</header>
 <div class="container">
     <div class="left">
 
         <header>
+            <h1>
+                FOHORMALAI!
+            </h1>
             <p>Welcome to Fohor Malai: You can pin and locate garbage, which will notify your nearest municipality office. Let’s keep our environment clean.</p>
         </header>
         <div class="carousel">
