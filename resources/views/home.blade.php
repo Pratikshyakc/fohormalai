@@ -41,7 +41,7 @@
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.5rem;
             font-weight: bold;
             text-align: center;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@
             margin-bottom: 20px;
             color: #333;
             background-color: #218838;
-            border-radius: 2em;
+            border-radius: 2rem;
             background-size: 50px;
         }
 
@@ -91,10 +91,9 @@
 
         .right-section {
             padding: 10px;
-
         }
 
-        form {
+        form card{
             display: flex;
             flex-direction: column;
             gap: 15px;
