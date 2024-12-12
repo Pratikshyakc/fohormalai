@@ -14,18 +14,20 @@ class HomeController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $validated = $request->validate(
             [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'location' => 'required',
-                'user_name' => 'required',
-                'user_phone' => 'required',
-                'user_address' => 'required',
-                'remarks' => 'required'
+                'latitude' => 'required',
+                'longitude' => 'required',
+                'user_name' => 'required|string:max:255',
+                'user_phone' => 'required|numeric|digits:10',
+                'user_address' => 'required|string:max:255',
+                'remarks' => 'required|string:max:255',
             ]
         );
+        return true;
 
     }
 }
