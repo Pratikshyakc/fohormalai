@@ -25,7 +25,7 @@
 <body>
 <div class="container-fluid p-5">
     <div class="row">
-        <div class="col-md-6 border-left bg-danger">
+        <div class="col-md-6 border-left">
             <header>
                 <h1>
                     FOHORMALAI!
