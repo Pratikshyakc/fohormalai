@@ -50,9 +50,6 @@
                 <div class="card-body">
                     <form action="{{route('garbage.store')}}" method="POST">
                         @csrf
-                        <div id="upload-div" style="cursor: pointer; padding: 10px; background-color: lightblue; border: 1px solid #ccc; display: inline-block;">
-                            Click to Upload Image
-                        </div>
 
 
 {{--                        <label for="file-input" style="cursor: pointer; color: blue; text-decoration: underline;">--}}
@@ -89,25 +86,26 @@
                         <input type="hidden" id="longitude" name="longitude">
 
                         <label for="name">Name:</label>
-                        <input type="text" id="user_name" name="user_name" required>
+                        <input type="text" id="user_name" name="user_name" value="{{old('user_name')}}" required>
                         @error('user_name')
                         <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
                         @enderror
 
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="user_phone" name="user_phone" required>
+                        <input type="tel" id="user_phone" name="user_phone" value="{{old('user_phone')}}"required>
                         @error('user_phone')
                         <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
                         @enderror
 
                         <label for="address">Address:</label>
-                        <input type="text" id="user_address" name="user_address" required>
+                        <input type="text" id="user_address" name="user_address" value="{{old('user_address')}}" required>
                         @error('user_address')
                         <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
                         @enderror
 
                         <label for="remarks">Remarks: (Optional)</label>
-                        <textarea id="remarks" name="remarks" rows="4" placeholder="Enter any remarks"></textarea>
+                        <textarea  id="remarks" name="remarks" rows="4" placeholder="Enter any remarks" > {{old('remarks')}}
+                        </textarea>
                         @error('remarks')
                         <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
                         @enderror
