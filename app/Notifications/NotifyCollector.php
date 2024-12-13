@@ -35,10 +35,22 @@ class NotifyCollector extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Important Notification') // Set the email subject
+            ->greeting('Hello!') // Add a greeting
+            ->line('We are excited to inform you about an update.') // Introduction line
+            ->line('Here are the details of the notification:') // Additional info
+            ->action('View Details', url('/')) // Add a call-to-action button with a URL
+            ->line('If you have any questions, feel free to contact us.') // Additional message
+            ->salutation('Best regards, The Team'); // Add a closing line
     }
+//    public function toMail(object $notifiable): MailMessage
+//    {
+//        return (new MailMessage)
+//            ->line('The introduction to the notification.')
+//            //for mail desgin
+//            ->line('The introduction to the notification.')
+//            ->line('Thank you for using our application!');
+//    }
 
     /**
      * Get the array representation of the notification.

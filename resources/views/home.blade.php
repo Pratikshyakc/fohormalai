@@ -48,43 +48,114 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="{{route('garbage.store')}}" method="POST">
+                        @csrf
                         <div id="upload-div" style="cursor: pointer; padding: 10px; background-color: lightblue; border: 1px solid #ccc; display: inline-block;">
                             Click to Upload Image
                         </div>
 
-                        <!-- Hidden file input field -->
-                        <input type="file" id="image" name="image" accept="image/*" >
 
-                        <!-- Div to display after image is uploaded -->
-                        <div id="image-uploaded" style="margin-top: 10px; display:none;">
-                            <h3>Image Uploaded:</h3>
-                            <img id="preview-img" src="" alt="Image Preview" style="max-width: 100%; height: auto;">
-                        </div>
+{{--                        <label for="file-input" style="cursor: pointer; color: blue; text-decoration: underline;">--}}
+{{--                            Click to choose file--}}
+{{--                        </label>--}}
+{{--                        <input type="file" id="file-input" name="image" accept="image/*" style="display: none;">--}}
+
+{{--                        <!-- Message for file selection -->--}}
+{{--                        <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;">--}}
+{{--                            File has been selected.--}}
+{{--                        </p>--}}
+{{--                        <!-- Hidden file input field -->--}}
+{{--                        <input type="file" id="image" name="image" accept="image/*" >--}}
+
+{{--                        <!-- Div to display after image is uploaded -->--}}
+{{--                        <div id="image-uploaded" style="margin-top: 10px; display:none;">--}}
+{{--                            <h3>Image Uploaded:</h3>--}}
+{{--                            <img id="preview-img" src="" alt="Image Preview" style="max-width: 100%; height: auto;">--}}
+{{--                        </div>--}}
 
                         <label for="map">Map:</label>
                         <div id="map" style="height: 180px;"></div>
                         <span id="coordinates" style="font-size: 12px">
                             Click on the map to get latitude and longitude.
                         </span>
+                        @error('latitude')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
+                        @error('longitude')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
 
                         <input type="hidden" id="latitude" name="latitude">
                         <input type="hidden" id="longitude" name="longitude">
 
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="user_name" name="user_name" required>
+                        @error('user_name')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
 
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="user_phone" name="user_phone" required>
+                        @error('user_phone')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
 
                         <label for="address">Address:</label>
-                        <input type="text" id="address" name="address" required>
+                        <input type="text" id="user_address" name="user_address" required>
+                        @error('user_address')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
 
                         <label for="remarks">Remarks: (Optional)</label>
                         <textarea id="remarks" name="remarks" rows="4" placeholder="Enter any remarks"></textarea>
+                        @error('remarks')
+                        <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
+                        @enderror
 
                         <button type="submit" class="submit-button">Submit</button>
                     </form>
+
+                    <form id="upload-form">
+                        <!-- File input -->
+                        <label for="image" style="cursor: pointer; color: blue; text-decoration: underline;">
+                            Click to choose a file
+                        </label>
+                        <input type="file" id="image" name="image" accept="image/*" style="display: none;">
+
+                        <!-- Confirmation message -->
+                        <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;">
+                            File has been selected and stored.
+                        </p>
+
+                        <!-- Submit button -->
+                        <button type="submit">Submit</button>
+                    </form>
+
+                    <script>
+                        let uploadedFile = null; // Variable to store the file
+
+                        const fileInput = document.getElementById('image');
+                        const fileSelectedMessage = document.getElementById('file-selected-message');
+
+                        fileInput.addEventListener('change', () => {
+                            if (fileInput.files.length > 0) {
+                                uploadedFile = fileInput.files[0]; // Store the file in the variable
+                                fileSelectedMessage.style.display = 'block'; // Show confirmation message
+                                fileSelectedMessage.textContent = `File "${uploadedFile.name}" has been selected.`;
+                            }
+                        });
+
+                        document.getElementById('upload-form').addEventListener('submit', (event) => {
+                            event.preventDefault(); // Prevent default form submission
+                            if (uploadedFile) {
+                                alert(`Form submitted with file: ${uploadedFile.name}`);
+                                // Perform any additional actions with the file (e.g., upload to server)
+                            } else {
+                                alert('No file selected!');
+                            }
+                        });
+                    </script>
+
 
                 </div>
             </div>

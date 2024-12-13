@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('user_name');
             $table->string('user_address')->nulllable();
             $table->string('user_phone')->nulllable();
-            $table->text('remarks');
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }
