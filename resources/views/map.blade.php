@@ -18,8 +18,31 @@
     </style>
 </head>
 <body>
-
+<h1>Garbage Points Map</h1>
 <div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    const map = L.map('map').setView([27.7172, 85.3240], 12); // Default center
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // Garbage data passed from Laravel
+    const garbages = @json($garbages);
+
+    // Add markers
+    garbages.forEach(garbage => {
+        const marker = L.marker([garbage.latitude, garbage.longitude]).addTo(map);
+        marker.bindPopup(`
+                <strong>${garbage.name}</strong><br>
+                <img src="/${garbage.image}" class="popup-img" alt="Garbage Image">
+            `);
+    });
+</script>
+{{$garbages->where('id' , 5)->first()->getFirstMediaUrl('image')}}
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>

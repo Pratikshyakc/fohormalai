@@ -76,12 +76,27 @@ class HomeController extends Controller
 
 
         $data = $request->all();
-        Garbage::create($data);
+        $garbage = Garbage::create($data);
         Notification::route('mail', 'recipient@example.com')->notify(new NotifyCollector());
 
-        if ($request->hasFile('image')) {
-            //store image in image_url
+//        if ($request->hasFile('image')) {
+//            //store image in image_url key:
+
+
+        if ($request->hasfile('image')) {
+
+            $garbage
+                ->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+
+
+//            $garbage
+//                ->addMediaFromRequest('image')
+//                ->toMediaCollection('image');
+
+
         }
+
 
         return redirect()->back()->with('success', 'Your request has been submitted.');
 
@@ -89,8 +104,35 @@ class HomeController extends Controller
 
     public function getMap()
     {
-        $garbages = Garbage::get(['latitude', 'longitude']);
+        $garbages = Garbage::all();
         return view('map', compact('garbages'));
+    }
+
+
+    public function handleLocation(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        // Example: Check if coordinates are in Pokhara range
+        if ($this->isPokhara($latitude, $longitude)) {
+            $email = 'pokhara@municipality.gov.np'; // Example email
+            $this->notifyMunicipality($email, $latitude, $longitude);
+            return response()->json(['message' => 'Notification sent to Pokhara Municipality']);
+        } else {
+            return response()->json(['message' => 'Location does not match Pokhara']);
+        }
+    }
+
+    private function isPokhara($lat, $lon)
+    {
+        return $lat >= 28.2 && $lat <= 28.3 && $lon >= 83.9 && $lon <= 84.0; // Example range
+    }
+
+    private function notifyMunicipality($email, $latitude, $longitude)
+    {
+        // Send an email notification
+        \Mail::to($email)->send(new \App\Mail\MunicipalityNotification($latitude, $longitude));
     }
 }
 

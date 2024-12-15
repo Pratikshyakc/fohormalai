@@ -48,8 +48,9 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('garbage.store')}}" method="POST">
+                    <form action="{{route('garbage.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="file" id="image" name="image" accept="image/*" >
 
 
 {{--                        <label for="file-input" style="cursor: pointer; color: blue; text-decoration: underline;">--}}
@@ -118,7 +119,6 @@
                         <label for="image" style="cursor: pointer; color: blue; text-decoration: underline;">
                             Click to choose a file
                         </label>
-                        <input type="file" id="image" name="image" accept="image/*" style="display: none;">
 
                         <!-- Confirmation message -->
                         <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;">
@@ -218,6 +218,19 @@
             .bindPopup(`Lat: ${lat}, Lng: ${lng}`)
             .openPopup();
     });
+</script>
+<script>
+navigator.geolocation.getCurrentPosition(function (position) {
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+
+// Send this data to the backend
+fetch('/submit-location', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ latitude, longitude })
+});
+});
 </script>
 </body>
 </html>
