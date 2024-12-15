@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FohorMalai</title>
+
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Slick Carousel CSS -->
     <link rel="stylesheet" type="text/css" href=" https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -21,7 +22,7 @@
     <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images//favicon-16x16.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('images/site.webmanifest')}}">
 
 </head>
@@ -30,11 +31,14 @@
     <div class="row">
         <div class="col-md-6 border-left">
             <header>
+                <img src="{{asset('images/logo.jpg')}}"  alt="fohor malai logo">
                 <h1>
-                    FOHORMALAI!
+                    FOHOR MALAI!
                 </h1>
-                <p>Welcome to FohorMalai: You can pin and locate garbage, which will notify your nearest municipality office. Let’s keep our environment clean.</p>
+
             </header>
+            <p>Welcome to FohorMalai: You can pin and locate garbage, which will notify your nearest municipality office. Let’s keep our environment clean.</p>
+
             <div class="carousel">
                 <div class="carousel-images">
                     <img class="image-carousel" src="{{asset('images/fohorphoto1.jpeg')}}" alt="Image 1" >

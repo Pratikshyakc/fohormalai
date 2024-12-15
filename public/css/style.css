@@ -27,18 +27,34 @@ body {
     border-right: 1px solid #e0e0e0;
     justify-content: center;
 }
+header{
+    border: 1px solid ;
+    display :flex;
+    align-items: center;
+    padding: 3px 50px 3px 2px;
+    font-family :'Arial', sans-serif ;
+    background: #28a745;
+    }
 
 header h1 {
-    font-size: 2rem;
-    color: #237a49;
-    font-weight: normal;
-    /*font-style: italic;*/
-    /*font-family:'Courier New', Courier, monospace;*/
+
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    font-family :Apple;
+}
+
+
+
+header img{
+    height:100px;
+    margin-right:10px;
 }
 
 header p {
     font-size: 1rem;
-    margin-top: 10px;
+    margin-top: 30px;
+
 }
 
 .carousel {
