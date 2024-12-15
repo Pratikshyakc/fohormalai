@@ -45,6 +45,12 @@ class MunicipalitySeeder extends Seeder
                 'latitude' => 27.0000,
                 'longitude' => 84.8667,
             ],
+            [
+                'name' => 'Bharatpur',
+                'email' => 'bharatpur@municipality.gov.np',
+                'latitude' => 27.6786,
+                'longitude' => 84.4329,
+            ],
             // Add more municipalities as needed
         ];
 
