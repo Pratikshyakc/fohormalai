@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
-            $table->string('user_name');
+            $table->string('user_name')->nullable();
             $table->string('user_address')->nulllable();
             $table->string('user_phone')->nulllable();
             $table->text('remarks')->nullable();

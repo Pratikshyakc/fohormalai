@@ -26,9 +26,9 @@ class HomeController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
                 'latitude' => 'required',
                 'longitude' => 'required',
-                'user_name' => 'required|string|min:3|max:20',
-                'user_phone' => 'required|numeric|digits:10',
-                'user_address' => 'required|string|min:3|max:255',
+                'user_name' => 'nullable|string|min:3|max:20',
+                'user_phone' => 'nullable|numeric|digits:10',
+                'user_address' => 'nullable|string|min:3|max:255',
             ],
             [
                 'An image is required' => 'image.required',
@@ -37,13 +37,10 @@ class HomeController extends Controller
                 'The image must not exceed 2 MB' => 'image.max',
                 'Latitude is required' => 'latitude.required',
                 'Longitude is required' => 'longitude.required',
-                'Username can not be empty' => 'user_name.required',
                 'Username must be at least 3 characters' => 'user_name.min',
                 'Username must be less than 20 characters' => 'user_name.max',
-                'Phone number cannot be empty' => 'user_phone.required',
                 'Phone number must be numeric' => 'user_phone.numeric',
                 'Phone number must be exactly 10 digits' => 'user_phone.digits',
-                'Address is required' => 'user_address.required',
                 'Address must be at least 3 characters' => 'user_address.min',
             ]
         );

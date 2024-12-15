@@ -24,10 +24,10 @@
     <tbody>
 
         <tr>
-            <td>{{ $user['name'] }}</td>
-            <td>{{ $user['phone'] }}</td>
-            <td>{{ $user['address'] }}</td>
-            <td>{{ $user['remarks'] }}</td>
+            <td>{{ $user['name'] ?? '----'}}</td>
+            <td>{{ $user['phone'] ?? '----' }}</td>
+            <td>{{ $user['address'] ?? '----'}}</td>
+            <td>{{ $user['remarks'] ?? '----' }}</td>
         </tr>
 
 
