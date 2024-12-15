@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 
+use App\Models\Garbage;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,6 @@ class GarbageSeeder extends Seeder
      */
     public function run(): void
     {
-        Garbage::create([
             DB::table('garbages')->insert(values: [
                 [
                     'latitude' => 28.2096,

@@ -15,22 +15,28 @@ class MunicipalityNotification extends Mailable
 
     public $latitude;
     public $longitude;
+    public $user;
+    public $image;
     /**
      * Create a new message instance.
      */
-    public function __construct($latitude, $longitude)
+    public function __construct($latitude, $longitude, $user,$image)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
+        $this->user = $user;
+        $this->image = $image;
     }
 
     public function build()
     {
         return $this->subject('Garbage Alert Notification')
-            ->view('emails.notify_municipality')
+            ->view('notify_municipality')
             ->with([
                 'latitude' => $this->latitude,
-                'longitude' => $this->longitude
+                'longitude' => $this->longitude,
+                'user' => $this->user,
+                'image' => $this->image,
             ]);
     }
 }

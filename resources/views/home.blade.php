@@ -56,6 +56,11 @@
                 </div>
         </div>
         <div class="col-md-6">
+            @if (session('success'))
+                <div style="color: green; padding: 10px; border: 1px solid #4CAF50; background-color: #DFF2BF;">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('garbage.store')}}" method="POST" enctype="multipart/form-data">
