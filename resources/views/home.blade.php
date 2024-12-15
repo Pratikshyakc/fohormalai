@@ -6,20 +6,23 @@
     <title>FohorMalai</title>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href=" https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href=" https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <!-- Slick Carousel JS -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images//favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('images/site.webmanifest')}}">
 
 </head>
 <body>
@@ -37,38 +40,30 @@
                     <img class="image-carousel" src="{{asset('images/fohorphoto1.jpeg')}}" alt="Image 1" >
                 </div>
                 <div class="carousel-images">
-                    <img class="image-carousel" src="{{asset('images/fohorphoto2.jpeg')}}" alt="Image 2">
+                    <img class="image-carousel" src=p"{{asset('images/fohorphoto2.jpeg')}}" alt="Image 2">
                 </div>
                 <div class="carousel-images">
                     <img class="image-carousel" src="{{asset('images/fohorphoto3.jpeg')}}" alt="Image 3">
                 </div>
 
             </div>
+                <div>
+                    <a href="{{route('garbage.map')}}" class="btn btn-primary">View Nearest Map</a>
+                </div>
         </div>
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('garbage.store')}}" method="POST">
+                    <form action="{{route('garbage.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="file" id="image" name="image" accept="image/*" >
+                            <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;"></p>
 
 
-{{--                        <label for="file-input" style="cursor: pointer; color: blue; text-decoration: underline;">--}}
-{{--                            Click to choose file--}}
-{{--                        </label>--}}
-{{--                        <input type="file" id="file-input" name="image" accept="image/*" style="display: none;">--}}
 
-{{--                        <!-- Message for file selection -->--}}
-{{--                        <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;">--}}
-{{--                            File has been selected.--}}
-{{--                        </p>--}}
-{{--                        <!-- Hidden file input field -->--}}
-{{--                        <input type="file" id="image" name="image" accept="image/*" >--}}
-
-{{--                        <!-- Div to display after image is uploaded -->--}}
-{{--                        <div id="image-uploaded" style="margin-top: 10px; display:none;">--}}
-{{--                            <h3>Image Uploaded:</h3>--}}
-{{--                            <img id="preview-img" src="" alt="Image Preview" style="max-width: 100%; height: auto;">--}}
-{{--                        </div>--}}
+                   <div id="image-uploaded" style="margin-top: 10px; display:none;">
+                       <h3>Image Uploaded:</h3>
+                    <img id="preview-img" src="" alt="Image Preview" style="max-width: 100%; height: auto;"></div>
 
                         <label for="map">Map:</label>
                         <div id="map" style="height: 180px;"></div>
@@ -85,6 +80,7 @@
                         <input type="hidden" id="latitude" name="latitude">
                         <input type="hidden" id="longitude" name="longitude">
 
+                        <br>
                         <label for="name">Name:</label>
                         <input type="text" id="user_name" name="user_name" value="{{old('user_name')}}" required>
                         @error('user_name')
@@ -92,7 +88,7 @@
                         @enderror
 
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="user_phone" name="user_phone" value="{{old('user_phone')}}"required>
+                        <input type="tel" id="user_phone" name="user_phone" value="{{old('user_phone')}}" required>
                         @error('user_phone')
                         <span class="text-danger" style="font-size: 12px;">{{$message}}</span>
                         @enderror
@@ -113,21 +109,6 @@
                         <button type="submit" class="submit-button">Submit</button>
                     </form>
 
-                    <form id="upload-form">
-                        <!-- File input -->
-                        <label for="image" style="cursor: pointer; color: blue; text-decoration: underline;">
-                            Click to choose a file
-                        </label>
-                        <input type="file" id="image" name="image" accept="image/*" style="display: none;">
-
-                        <!-- Confirmation message -->
-                        <p id="file-selected-message" style="margin-top: 10px; display: none; color: green;">
-                            File has been selected and stored.
-                        </p>
-
-                        <!-- Submit button -->
-                        <button type="submit">Submit</button>
-                    </form>
 
                     <script>
                         let uploadedFile = null; // Variable to store the file
@@ -166,13 +147,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-    $('.carousel').slick({
-        dots: true,
-
-    });
+    $('.carousel').slick({dots: true});
     // Handle the image upload and display the div
     document.getElementById('image').addEventListener('change', function(event) {
         const file = event.target.files[0]; // Get the selected file
@@ -218,6 +195,19 @@
             .bindPopup(`Lat: ${lat}, Lng: ${lng}`)
             .openPopup();
     });
+</script>
+<script>
+navigator.geolocation.getCurrentPosition(function (position) {
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+
+// Send this data to the backend
+fetch('/submit-location', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ latitude, longitude })
+});
+});
 </script>
 </body>
 </html>
