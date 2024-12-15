@@ -51,9 +51,10 @@ header img{
     margin-right:10px;
 }
 
-header p {
+p {
     font-size: 1rem;
-    margin-top: 30px;
+    margin-top: 30px !important;
+
 
 }
 

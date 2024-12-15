@@ -23,6 +23,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon-16x16.png')}}">
+
     <link rel="manifest" href="{{asset('images/site.webmanifest')}}">
 
 </head>
@@ -44,7 +45,7 @@
                     <img class="image-carousel" src="{{asset('images/fohorphoto1.jpeg')}}" alt="Image 1" >
                 </div>
                 <div class="carousel-images">
-                    <img class="image-carousel" src=p"{{asset('images/fohorphoto2.jpeg')}}" alt="Image 2">
+                    <img class="image-carousel" src="{{asset('images/fohorphoto2.jpeg')}}" alt="Image 2">
                 </div>
                 <div class="carousel-images">
                     <img class="image-carousel" src="{{asset('images/fohorphoto3.jpeg')}}" alt="Image 3">
